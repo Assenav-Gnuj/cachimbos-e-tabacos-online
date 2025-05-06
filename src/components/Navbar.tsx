@@ -32,18 +32,18 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="bg-wood text-cream-DEFAULT shadow-md">
+    <header className="bg-wood text-white shadow-md">
       <div className="container mx-auto px-4 py-3">
-        <h1 className="text-3xl md:text-4xl font-serif font-semibold text-center py-4">Cachimbos & Tabacos</h1>
+        <h1 className="text-3xl md:text-4xl font-serif font-semibold text-center py-4 text-white">Cachimbos & Tabacos</h1>
         
         <nav className="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-1">
           <div className="relative group px-4 py-2">
-            <Link to="/home" className="font-medium hover:text-tobacco transition-colors duration-200">Home</Link>
+            <Link to="/home" className="font-medium hover:text-tobacco transition-colors duration-200 text-white">Home</Link>
           </div>
           
           {/* Cachimbos Dropdown */}
           <div className="relative dropdown px-4 py-2">
-            <span className="font-medium cursor-pointer hover:text-tobacco transition-colors duration-200">Cachimbos</span>
+            <span className="font-medium cursor-pointer hover:text-tobacco transition-colors duration-200 text-white">Cachimbos</span>
             <div className="dropdown-menu w-48 bg-white shadow-lg rounded-md py-1 mt-2">
               {pipeTypes.map((type) => (
                 <Link 
@@ -59,7 +59,7 @@ const Navbar = () => {
           
           {/* Acessórios Dropdown */}
           <div className="relative dropdown px-4 py-2">
-            <span className="font-medium cursor-pointer hover:text-tobacco transition-colors duration-200">Acessórios</span>
+            <span className="font-medium cursor-pointer hover:text-tobacco transition-colors duration-200 text-white">Acessórios</span>
             <div className="dropdown-menu w-40 bg-white shadow-lg rounded-md py-1 mt-2">
               {accessories.map((item) => (
                 <Link 
@@ -75,7 +75,7 @@ const Navbar = () => {
           
           {/* Materiais para Restauração Dropdown */}
           <div className="relative dropdown px-4 py-2">
-            <span className="font-medium cursor-pointer hover:text-tobacco transition-colors duration-200">Materiais para Restauração</span>
+            <span className="font-medium cursor-pointer hover:text-tobacco transition-colors duration-200 text-white">Materiais para Restauração</span>
             <div className="dropdown-menu w-40 bg-white shadow-lg rounded-md py-1 mt-2">
               {restorationMaterials.map((item) => (
                 <Link 
@@ -91,7 +91,7 @@ const Navbar = () => {
           
           {/* Tabacos Dropdown */}
           <div className="relative dropdown px-4 py-2">
-            <span className="font-medium cursor-pointer hover:text-tobacco transition-colors duration-200">Tabacos</span>
+            <span className="font-medium cursor-pointer hover:text-tobacco transition-colors duration-200 text-white">Tabacos</span>
             <div className="dropdown-menu w-44 bg-white shadow-lg rounded-md py-1 mt-2">
               {tobaccoTypes.map((item) => (
                 <Link 
@@ -107,14 +107,14 @@ const Navbar = () => {
           
           {/* Search Button */}
           <div className="px-4 py-2">
-            <button className="hover:text-tobacco transition-colors duration-200">
+            <button className="hover:text-tobacco transition-colors duration-200 text-white">
               <Search size={20} />
             </button>
           </div>
           
           {/* Admin Link */}
           <div className="px-4 py-2">
-            <Link to="/admin" className="font-medium hover:text-tobacco transition-colors duration-200">Admin</Link>
+            <Link to="/admin" className="font-medium hover:text-tobacco transition-colors duration-200 text-white">Admin</Link>
           </div>
         </nav>
       </div>
