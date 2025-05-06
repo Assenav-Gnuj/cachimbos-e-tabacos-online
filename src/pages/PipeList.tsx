@@ -19,14 +19,14 @@ interface PipeListItem {
 
 // Mapeamento de categorias em português
 const categoryMap: Record<string, string> = {
-  'dinamarqueses': 'Dinamarqueses',
-  'franceses': 'Franceses',
-  'holandeses': 'Holandeses',
-  'ingleses': 'Ingleses',
-  'irlandeses': 'Irlandeses',
-  'italianos': 'Italianos',
-  'norte-americanos': 'Norte-Americanos',
-  'outros': 'Outros Países'
+  'dinamarqueses': 'Dinamarca',
+  'franceses': 'França',
+  'holandeses': 'Holanda',
+  'ingleses': 'Inglaterra',
+  'irlandeses': 'Irlanda',
+  'italianos': 'Itália',
+  'norte-americanos': 'Estados Unidos',
+  'outros': 'Outros'
 };
 
 // Dados de exemplo para a listagem
@@ -100,18 +100,28 @@ const PipeList = () => {
 
   // Filtrar cachimbos com base na categoria e termo de busca
   const filteredPipes = pipes.filter((pipe) => {
-    const matchesCategory = categoryId === 'outros' 
-      ? !['Dinamarca', 'França', 'Holanda', 'Inglaterra', 'Irlanda', 'Itália', 'Estados Unidos'].includes(pipe.country)
-      : categoryMap[categoryId || ''] === pipe.country;
-      
+    // Se não temos uma categoria definida, mostrar todos
+    if (!categoryId) return true;
+    
+    // Caso especial para "outros países"
+    if (categoryId === 'outros') {
+      const mainCountries = ['Dinamarca', 'França', 'Holanda', 'Inglaterra', 'Irlanda', 'Itália', 'Estados Unidos'];
+      return !mainCountries.includes(pipe.country);
+    }
+
+    // Caso normal - comparar o país do cachimbo com o país correspondente à categoria
+    const categoryCountry = categoryMap[categoryId];
+    const matchesCategory = pipe.country === categoryCountry;
+    
+    // Filtrar por termo de busca
     const matchesSearch = searchTerm === '' || 
       pipe.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
       pipe.brand.toLowerCase().includes(searchTerm.toLowerCase());
     
-    return matchesSearch;
+    return matchesCategory && matchesSearch;
   });
 
-  // Se não temos uma categoria definida, mostrar todos
+  // Mostrar os cachimbos filtrados ou todos se não houver categoria
   const displayPipes = categoryId ? filteredPipes : pipes;
 
   return (
