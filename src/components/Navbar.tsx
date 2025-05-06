@@ -43,17 +43,20 @@ const Navbar = () => {
   return (
     <header className="bg-wood text-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 py-2">
-        <div className="flex justify-between items-center mb-2">
-          {/* Logo */}
-          <Link to="/home" className="flex items-center gap-2">
-            <img src="https://i.ibb.co/WpB3SyxF/LOGO-PRINCIPAL.png" alt="Logo" className="h-12 w-auto" />
-            <h1 className="text-3xl md:text-4xl font-serif font-semibold text-white hidden sm:block">
-              Cachimbos & Tabacos
-            </h1>
+        {/* Top Section with Logo, Title and Search/Admin */}
+        <div className="flex justify-between items-center mb-4">
+          {/* Logo - Bigger size */}
+          <Link to="/home" className="flex-shrink-0">
+            <img src="https://i.ibb.co/WpB3SyxF/LOGO-PRINCIPAL.png" alt="Logo" className="h-16 w-auto" />
           </Link>
 
+          {/* Title - Centered */}
+          <h1 className="text-3xl md:text-4xl font-serif font-semibold text-white text-center flex-grow">
+            Cachimbos & Tabacos
+          </h1>
+
           {/* Search and Admin */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-shrink-0">
             <div className="relative">
               <Input
                 type="text"
@@ -72,8 +75,8 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Navigation Menu */}
-        <NavigationMenu className="justify-start max-w-full overflow-x-auto">
+        {/* Navigation Menu - Centered */}
+        <NavigationMenu className="justify-center max-w-full overflow-x-auto mx-auto">
           <NavigationMenuList className="flex space-x-1">
             {/* Home Link */}
             <NavigationMenuItem>
